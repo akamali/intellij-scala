@@ -229,7 +229,7 @@ trait TreeAdapter {
       .getOrElse(Nil)
     val ctor = t.extendsBlock.templateParents match {
       case Some(parents) =>
-        parents.constructorInvocation match {
+        parents.firstParentClause match {
           case Some(constrInvocation) => toCtor(constrInvocation)
           case None => unreachable(ScalaMetaBundle.message("no.constructor.found.in.class", t.qualifiedName))
         }
